@@ -1,6 +1,6 @@
 # emo-analyzer
 
-I help my wife with Python project for university. Looks small, but I'm not a professional on Python at this moment, so it's probably there is a chance do it with less code :D
+I'm helping my wife with a small Python project for university. I'm not a Python professional, so there is probably a way to do it with less code :D
 
 ---
 
