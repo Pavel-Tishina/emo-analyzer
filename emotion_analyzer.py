@@ -70,10 +70,9 @@ class EmotionHistory:
             session_time += time
 
         # make result text description
-        result = (f'''
-During the session, the client most often experienced {get_emotion_info(max_emotion.emotion)} and most rare {get_emotion_info(min_emotion.emotion)}.
-
-List of emotions and their total duration per session:\n''')
+        result = (
+f'''During the session, the client most often experienced {get_emotion_info(max_emotion.emotion)} and most rare {get_emotion_info(min_emotion.emotion)}.
+\nList of emotions and their total duration per session:\n''')
         
         for emotion, time in emotion_class_time.items():                            # display a breakdown of time spent on each emotion category
             result += f'{emotion} : {format_timedelta(time)}\n'
@@ -94,16 +93,16 @@ List of emotions and their total duration per session:\n''')
             values = [emotions_dict[emotion] for _, emotions_dict in items]
             plt.plot(times, values, label=emotion)
 
-        plt.legend()                                # start of graph display
-        plt.xlabel("Время")                         # X-axis to represent time
-        plt.ylabel("Вероятность")                   # Y-axis to represent time
-        plt.title("График эмоций за сессию")        # add title
-        plt.xticks(rotation=45)                     # rotate the labels on the X-axis marks by 45 degrees
-        plt.tight_layout()                          # set the graph rendering type
-        plt.subplots_adjust(bottom=0.4)             # set the indentation from the grid for the next element
+        plt.legend()                                  # start of graph display
+        plt.xlabel("Time")                            # X-axis to represent time
+        plt.ylabel("Probability")                     # Y-axis to represent time
+        plt.title("Emotion chart during the session") # add title
+        plt.xticks(rotation=45)                       # rotate the labels on the X-axis marks by 45 degrees
+        plt.tight_layout()                            # set the graph rendering type
+        plt.subplots_adjust(bottom=0.4)               # set the indentation from the grid for the next element
 
         plt.figtext(0.01, 0.01, self.session_summary(), ha="left", fontsize=8)  # Display the text of the emotion analysis
-        plt.show()                                  # show result window
+        plt.show()                                    # show result window
 
 # function for outputting the time in text format
 def format_datetime(dt: datetime) -> str:
